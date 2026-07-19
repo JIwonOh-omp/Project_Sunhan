@@ -1,0 +1,283 @@
+번호	성분명(한글)	표준 영문명(INCI)	상태
+1	1,2-헥산다이올	(영문명 미기재)	표준명 있음
+2	2,3-부탄다이올	(영문명 미기재)	표준명 있음
+3	C12-14알케스-12	C12-14 Alketh-12	표준명 있음
+4	C30-45알킬세테아릴다이메티콘크로스폴리머	C30-45 Alkyl Cetearyl Dimethicone Crosspolymer	표준명 있음
+5	t-부틸알코올	t-Butyl Alcohol	표준명 있음
+6	감나무잎추출물	Diospyros Kaki Leaf Extract	표준명 있음
+7	감초추출물	Glycyrrhiza Uralensis (Licorice) Extract	표준명 있음
+8	개박하추출물	Nepeta Cataria Extract	표준명 있음
+9	검은뽕나무열매추출물	Morus Nigra Fruit Extract	표준명 있음
+10	광곽향오일	Pogostemon Cablin Oil	표준명 있음
+11	귀리커넬추출물	Avena Sativa (Oat) Kernel Extract	표준명 있음
+12	글라이코프로테인	Glycoproteins	표준명 있음
+13	글루타티온	Glutathione	표준명 있음
+14	글리세린	Glycerin	표준명 있음
+15	글리세릴스테아레이트	(영문명 미기재)	표준명 있음
+16	글리세릴스테아레이트에스이	Glyceryl Stearate SE	표준명 있음
+17	글리세릴카프릴레이트	Glyceryl Caprylate	표준명 있음
+18	글리세릴폴리메타크릴레이트	Glyceryl Polymethacrylate	표준명 있음
+19	나이아신아마이드	Niacinamide	표준명 있음
+20	녹차추출물	Camellia Sinensis Leaf Extract	표준명 있음
+21	다마스크장미꽃수	Rosa Damascena Flower Water	표준명 있음
+22	다시마추출물	Laminaria Japonica Extract	표준명 있음
+23	다이메티콘	Methyleugenyl PEG-8 Dimethicone	표준명 있음
+24	다이메티콘/비닐다이메티콘크로스폴리머	PEG-10 Dimethicone/Vinyl Dimethicone Crosspolymer	표준명 있음
+25	다이메티콘올	Dimethiconol	표준명 있음
+26	다이메틸아이소소바이드	Dimethyl Isosorbide	표준명 있음
+27	다이부틸아디페이트	Dibutyl Adipate	표준명 있음
+28	다이소듐이디티에이	Disodium EDTA	표준명 있음
+29	다이스테아다이모늄헥토라이트	Disteardimonium Hectorite	표준명 있음
+30	다이실록세인	Disiloxane	표준명 있음
+31	다이아이소프로필세바케이트	Diisopropyl Sebacate	표준명 있음
+32	다이카프릴릴에테르		표준명 없음
+33	다이카프릴릴카보네이트	Dicaprylyl Carbonate	표준명 있음
+34	다이페닐다이메티콘	Diphenyl Dimethicone	표준명 있음
+35	다이프로필렌글라이콜	Dipropylene Glycol	표준명 있음
+36	달맞이꽃꽃추출물	Oenothera Biennis (Evening Primrose) Flower Extract	표준명 있음
+37	당근추출물	Daucus Carota Sativa (Carrot) Root Extract	표준명 있음
+38	당느릅나무뿌리추출물	Ulmus Davidiana Root Extract	표준명 있음
+39	대왕소나무잎추출물	Pinus Palustris Leaf Extract	표준명 있음
+40	데실글루코사이드	Decyl Glucoside	표준명 있음
+41	덱스트린	Dextrin	표준명 있음
+42	돌콩오일	Glycine Soja (Soybean) Oil	표준명 있음
+43	동백나무꽃추출물	Camellia Japonica Flower Extract	표준명 있음
+44	드럼스틱씨오일	Moringa Oleifera Seed Oil	표준명 있음
+45	들깨추출물	Perilla Ocymoides Seed Extract	표준명 있음
+46	디에칠아미노하이드록시벤조일헥실벤조에이트	Diethylamino Hydroxybenzoyl Hexyl Benzoate	표준명 있음
+47	디에칠헥실부타미도트리아존	Diethylhexyl Butamido Triazone	표준명 있음
+48	라벤더꽃추출물	Lavandula Angustifolia (Lavender) Flower Extract	표준명 있음
+49	라우릭애씨드	Lauric Acid	표준명 있음
+50	라우릴폴리글리세릴-3폴리다이메틸실록시에틸다이메티콘	Lauryl Polyglyceryl-3 Polydimethylsiloxyethyl Dimethicone	표준명 있음
+51	락토바실러스/쌀발효물	Lactobacillus/Rice Ferment	표준명 있음
+52	락토바실러스/호박발효추출물	Lactobacillus/Pumpkin Ferment Extract	표준명 있음
+53	락토바실러스발효물	Lactobacillus Ferment	표준명 있음
+54	락토바이오닉애씨드	Lactobionic Acid	표준명 있음
+55	락토오스	Lactose	표준명 있음
+56	레티놀	Retinol	표준명 있음
+57	레틴알	Retinal	표준명 있음
+58	로즈마리잎오일	Rosmarinus Officinalis (Rosemary) Leaf Oil	표준명 있음
+59	리날룰	Linalool	표준명 있음
+60	리모넨	Limonene	표준명 있음
+61	리씨열매오일	Litsea Cubeba Fruit Oil	표준명 있음
+62	마그네슘설페이트	Magnesium Sulfate	표준명 있음
+63	마그네슘알루미늄실리케이트	Magnesium Aluminum Silicate	표준명 있음
+64	마데카소사이드	Madecassoside	표준명 있음
+65	마데카식애씨드	Madecassic Acid	표준명 있음
+66	마카다미아씨오일	(영문명 미기재)	표준명 있음
+67	말라카이트추출물	Malachite Extract	표준명 있음
+68	말토덱스트린	Maltodextrin	표준명 있음
+69	메칠렌비스-벤조트리아졸릴테트라메칠부틸페놀	Methylene Bis-Benzotriazolyl Tetramethylbutylphenol	표준명 있음
+70	메틸메타크릴레이트크로스폴리머	Methyl Methacrylate Crosspolymer	표준명 있음
+71	메틸프로판다이올	Methylpropanediol	표준명 있음
+72	멜론추출물	Cucumis Melo (Melon) Fruit Extract	표준명 있음
+73	모나스커스/쌀발효물	Monascus/Rice Ferment	표준명 있음
+74	무화과추출물	Ficus Carica (Fig) Fruit Extract	표준명 있음
+75	미리스틱애씨드	Myristic Acid	표준명 있음
+76	밀몽화꽃추출물	Buddleja Officinalis Flower Extract	표준명 있음
+77	바실러스/소이빈발효추출물	Bacillus/Soybean Ferment Extract	표준명 있음
+78	바오밥나무잎추출물	Adansonia Digitata Leaf Extract	표준명 있음
+79	바이오사카라이드검-1	Biosaccharide Gum-1	표준명 있음
+80	베타-글루칸	Beta-Glucan	표준명 있음
+81	베타-카로틴	Beta-Carotene	표준명 있음
+82	베타인	Betaine	표준명 있음
+83	베헤닐알코올	Behenyl Alcohol	표준명 있음
+84	벤조페논-3	Benzophenone-3	표준명 있음
+85	벤토나이트	Bentonite	표준명 있음
+86	변성알코올	Alcohol Denat.	표준명 있음
+87	별꽃추출물	Stellaria Media (Chickweed) Extract	표준명 있음
+88	병풀뿌리추출물	Centella Asiatica Root Extract	표준명 있음
+89	병풀잎수	Centella Asiatica Leaf Water	표준명 있음
+90	병풀잎추출물	Centella Asiatica Leaf Extract	표준명 있음
+91	병풀추출물	Centella Asiatica Extract	표준명 있음
+92	부들레야추출물	Buddleja Davidii Extract	표준명 있음
+93	부틸렌글라이콜	Butylene Glycol	표준명 있음
+94	부틸메톡시디벤조일메탄	Butyl Methoxydibenzoylmethane	표준명 있음
+95	부틸아보카데이트	Butyl Avocadate	표준명 있음
+96	부틸옥틸살리실레이트	Butyloctyl Salicylate	표준명 있음
+97	불가리스쑥오일	Artemisia Vulgaris Oil	표준명 있음
+98	브이피/에이코신코폴리머	VP/Eicosene Copolymer	표준명 있음
+99	비닐다이메티콘	Vinyl Dimethicone	표준명 있음
+100	비닐다이메티콘/메티콘실세스퀴옥세인크로스폴리머	Vinyl Dimethicone/Methicone Silsesquioxane Crosspolymer	표준명 있음
+101	비파나무잎추출물	Eriobotrya Japonica Leaf Extract	표준명 있음
+102	비피다발효용해물	Bifida Ferment Lysate	표준명 있음
+103	사이클로펜타실록세인	Cyclopentasiloxane	표준명 있음
+104	사이클로헥사실록세인	Cyclohexasiloxane	표준명 있음
+105	사철쑥추출물	Artemisia Capillaris Extract	표준명 있음
+106	사탕수수추출물	Saccharum Officinarum (Sugarcane) Extract	표준명 있음
+107	살리실릭애씨드	Salicylic Acid	표준명 있음
+108	살비아잎수	Salvia Officinalis (Sage) Leaf Water	표준명 있음
+109	서양배추출물	Pyrus Communis (Pear) Fruit Extract	표준명 있음
+110	서양산딸기잎추출물	Rubus Fruticosus (Blackberry) Leaf Extract	표준명 있음
+111	서양송악잎/줄기추출물	Hedera Helix (Ivy) Leaf/Stem Extract	표준명 있음
+112	석류씨오일	Punica Granatum Seed Oil	표준명 있음
+113	세라마이드에이에스	Ceramide AS	표준명 있음
+114	세라마이드에이피	Ceramide AP	표준명 있음
+115	세라마이드엔에스	Ceramide NS	표준명 있음
+116	세라마이드엔피	Ceramide NP	표준명 있음
+117	세라마이드이오피	Ceramide EOP	표준명 있음
+118	세테아릴글루코사이드	Cetearyl Glucoside	표준명 있음
+119	세테아릴알코올	Cetearyl Alcohol	표준명 있음
+120	세테아릴올리베이트	Cetearyl Olivate	표준명 있음
+121	세틸알코올	Cetyl Alcohol	표준명 있음
+122	센티드제라늄추출물	Pelargonium Graveolens Extract	표준명 있음
+123	셀룰로오스	Cellulose	표준명 있음
+124	소듐메틸스테아로일타우레이트	Sodium Methyl Stearoyl Taurate	표준명 있음
+125	소듐벤조에이트	Sodium Benzoate	표준명 있음
+126	소듐스테아로일글루타메이트	Sodium Stearoyl Glutamate	표준명 있음
+127	소듐아세틸레이티드하이알루로네이트	Sodium Acetylated Hyaluronate	표준명 있음
+128	소듐코코일글라이시네이트	Sodium Cocoyl Glycinate	표준명 있음
+129	소듐파이테이트	Sodium Phytate	표준명 있음
+130	소듐하이알루로네이트	Sodium Hyaluronate	표준명 있음
+131	소듐하이알루로네이트크로스폴리머	Sodium Hyaluronate Crosspolymer	표준명 있음
+132	솔베스-30테트라올리에이트	Sorbeth-30 Tetraoleate	표준명 있음
+133	솔비탄세스퀴올리에이트	Sorbitan Sesquioleate	표준명 있음
+134	솔비탄아이소스테아레이트	Sorbitan Isostearate	표준명 있음
+135	솔비탄올리베이트	Sorbitan Olivate	표준명 있음
+136	솔잣나무잎추출물	Cupressus Sempervirens Leaf Extract	표준명 있음
+137	쇠비름추출물	Portulaca Oleracea Extract	표준명 있음
+138	수레국화꽃수	Centaurea Cyanus Flower Water	표준명 있음
+139	수크로오스	Sucrose	표준명 있음
+140	수크로오스스테아레이트	Sucrose Stearate	표준명 있음
+141	숯가루	Charcoal Powder	표준명 있음
+142	스쿠알란	Squalane	표준명 있음
+143	스테아릭애씨드	Stearic Acid	표준명 있음
+144	스페인감초뿌리추출물	Glycyrrhiza Glabra (Licorice) Root Extract	표준명 있음
+145	스피어민트추출물	Mentha Viridis (Spearmint) Extract	표준명 있음
+146	시어버터	Butyrospermum Parkii (Shea) Butter	표준명 있음
+147	시트랄	Citral	표준명 있음
+148	시트로넬올	Citronellol	표준명 있음
+149	쌀배아추출물	Oryza Sativa (Rice) Germ Extract	표준명 있음
+150	쌀추출물	Oryza Sativa (Rice) Extract	표준명 있음
+151	아데노신	Adenosine	표준명 있음
+152	아스코빅애씨드폴리펩타이드	Ascorbic Acid Polypeptide	표준명 있음
+153	아스퍼질러스발효물	Aspergillus Ferment	표준명 있음
+154	아시아티코사이드	Asiaticoside	표준명 있음
+155	아시아틱애씨드	Asiatic Acid	표준명 있음
+156	아이비고드열매추출물	Coccinia Indica Fruit Extract	표준명 있음
+157	아이소도데케인	Isododecane	표준명 있음
+158	아크릴레이트/C10-30알킬아크릴레이트크로스폴리머	Acrylates/C10-30 Alkyl Acrylate Crosspolymer	표준명 있음
+159	알란토인	Allantoin	표준명 있음
+160	알로에베라잎즙	Aloe Barbadensis Leaf Juice	표준명 있음
+161	알루미나	Alumina	표준명 있음
+162	알루미늄하이드록사이드	Aluminum Hydroxide	표준명 있음
+163	알지닌	Arginine	표준명 있음
+164	암모늄아크릴로일다이메틸타우레이트/브이피코폴리머	Ammonium Acryloyldimethyltaurate/VP Copolymer	표준명 있음
+165	약모밀추출물	Houttuynia Cordata Extract	표준명 있음
+166	에우파토리아짚신나물추출물	Agrimonia Eupatoria Extract	표준명 있음
+167	에칠헥실메톡시신나메이트	Ethylhexyl Methoxycinnamate	표준명 있음
+168	에칠헥실살리실레이트	Ethylhexyl Salicylate	표준명 있음
+169	에칠헥실트리아존	Ethylhexyl Triazone	표준명 있음
+170	에틸헥실글리세린	Ethylhexylglycerin	표준명 있음
+171	에틸헥실팔미테이트	Ethylhexyl Palmitate	표준명 있음
+172	엑토인	Ectoin	표준명 있음
+173	연필향나무오일		표준명 없음
+174	오렌지오일	Citrus Aurantium Dulcis (Orange) Oil	표준명 있음
+175	오리스뿌리추출물	Iris Florentina Root Extract	표준명 있음
+176	옥수수배아오일	Zea Mays (Corn) Germ Oil	표준명 있음
+177	옥수수전분	Zea Mays (Corn) Starch	표준명 있음
+178	옥토크릴렌	Octocrylene	표준명 있음
+179	올리브나무잎추출물	Olea Europaea (Olive) Leaf Extract	표준명 있음
+180	올리브오일	Olea Europaea (Olive) Fruit Oil	표준명 있음
+181	울금뿌리추출물	Curcuma Longa (Turmeric) Root Extract	표준명 있음
+182	울트라마린	Ultramarines	표준명 있음
+183	이눌린라우릴카바메이트	Inulin Lauryl Carbamate	표준명 있음
+184	인도멀구슬나무껍질추출물	Melia Azadirachta Bark Extract	표준명 있음
+185	인도멀구슬나무꽃추출물	Melia Azadirachta Flower Extract	표준명 있음
+186	인도멀구슬나무잎추출물	Melia Azadirachta Leaf Extract	표준명 있음
+187	자이언트켈프추출물	Macrocystis Pyrifera (Kelp) Extract	표준명 있음
+188	잔탄검	Xanthan Gum	표준명 있음
+189	적색산화철	Iron Oxide Red	표준명 있음
+190	정제수	Water	표준명 있음
+191	제라니올	Geraniol	표준명 있음
+192	제인	Zein	표준명 있음
+193	조선현호색뿌리추출물	Corydalis Turtschaninovii Root Extract	표준명 있음
+194	징크옥사이드	Zinc Oxide	표준명 있음
+195	참산호말추출물	Corallina Officinalis Extract	표준명 있음
+196	칡뿌리추출물	Pueraria Lobata Root Extract	표준명 있음
+197	카보머	Carbomer	표준명 있음
+198	카올린	Kaolin	표준명 있음
+199	카카오씨추출물	Theobroma Cacao (Cocoa) Seed Extract	표준명 있음
+200	카프릴로일살리실릭애씨드	Capryloyl Salicylic Acid	표준명 있음
+201	카프릴릭/카프릭트라이글리세라이드	Caprylic/Capric Triglyceride	표준명 있음
+202	카프릴릴/카프릴글루코사이드	Caprylyl/Capryl Glucoside	표준명 있음
+203	카프릴릴글라이콜	Caprylyl Glycol	표준명 있음
+204	카프릴릴메티콘	Caprylyl Methicone	표준명 있음
+205	캣츠클로추출물	Uncaria Tomentosa Extract	표준명 있음
+206	코코-카프릴레이트/카프레이트	Coco-Caprylate/Caprate	표준명 있음
+207	코코넛야자열매추출물	Cocos Nucifera (Coconut) Fruit Extract	표준명 있음
+208	코토니추출물	Kappaphycus Alvarezii Extract	표준명 있음
+209	콜라겐	Collagen	표준명 있음
+210	콜레스테롤	Cholesterol	표준명 있음
+211	퀸즈랜드넛오일	Macadamia Integrifolia Seed Oil	표준명 있음
+212	타라검	Caesalpinia Spinosa Gum	표준명 있음
+213	타라열매추출물	Caesalpinia Spinosa Fruit Extract	표준명 있음
+214	타임추출물	Thymus Vulgaris (Thyme) Extract	표준명 있음
+215	토코페롤	Tocopherol	표준명 있음
+216	토코페릴아세테이트	Tocopheryl Acetate	표준명 있음
+217	트라넥사믹애씨드	Tranexamic Acid	표준명 있음
+218	트라이에톡시카프릴릴실레인	Triethoxycaprylylsilane	표준명 있음
+219	트라이에틸헥사노인	Triethylhexanoin	표준명 있음
+220	트레할로오스	Trehalose	표준명 있음
+221	트로메타민	Tromethamine	표준명 있음
+222	티타늄디옥사이드	Titanium Dioxide	표준명 있음
+223	티트리잎오일	Melaleuca Alternifolia (Tea Tree) Leaf Oil	표준명 있음
+224	티트리추출물	Melaleuca Alternifolia (Tea Tree) Extract	표준명 있음
+225	판테놀	Panthenol	표준명 있음
+226	팔미토일헥사펩타이드-12	Palmitoyl Hexapeptide-12	표준명 있음
+227	팔미틱애씨드	Palmitic Acid	표준명 있음
+228	페녹시에탄올	Phenoxyethanol	표준명 있음
+229	페닐트라이메티콘	Phenyl Trimethicone	표준명 있음
+230	펙틴	Pectin	표준명 있음
+231	펜타에리스리틸테트라-다이-t-부틸하이드록시하이드로신나메이트	Pentaerythrityl Tetra-di-t-butyl Hydroxyhydrocinnamate	표준명 있음
+232	펜틸렌글라이콜	Pentylene Glycol	표준명 있음
+233	포도씨오일	Vitis Vinifera (Grape) Seed Oil	표준명 있음
+234	포도주	Wine	표준명 있음
+235	포타슘코코일글리시네이트	Potassium Cocoyl Glycinate	표준명 있음
+236	포타슘하이드록사이드	Potassium Hydroxide	표준명 있음
+237	폴리C10-30알킬아크릴레이트	Poly C10-30 Alkyl Acrylate	표준명 있음
+238	폴리글리세릴-10라우레이트	Polyglyceryl-10 Laurate	표준명 있음
+239	폴리글리세릴-2다이폴리하이드록시스테아레이트	Polyglyceryl-2 Dipolyhydroxystearate	표준명 있음
+240	폴리글리세릴-2카프레이트	Polyglyceryl-2 Caprate	표준명 있음
+241	폴리글리세릴-3메틸글루코오스다이스테아레이트	Polyglyceryl-3 Methylglucose Distearate	표준명 있음
+242	폴리글리세릴-3폴리다이메틸실록시에틸다이메티콘	Polyglyceryl-3 Polydimethylsiloxyethyl Dimethicone	표준명 있음
+243	폴리글리세릴-6카프릴레이트	Polyglyceryl-6 Caprylate	표준명 있음
+244	폴리메틸메타크릴레이트	Polymethyl Methacrylate	표준명 있음
+245	폴리메틸실세스퀴옥세인	Polymethylsilsesquioxane	표준명 있음
+246	폴리비닐알코올	Polyvinyl Alcohol	표준명 있음
+247	폴리실리콘-15	Polysilicone-15	표준명 있음
+248	폴리아크릴레이트크로스폴리머-6	Polyacrylate Crosspolymer-6	표준명 있음
+249	폴리에터-1	Polyether-1	표준명 있음
+250	폴리하이드록시스테아릭애씨드	Polyhydroxystearic Acid	표준명 있음
+251	풀루란	Pullulan	표준명 있음
+252	프랑스해안송껍질추출물	Pinus Pinaster Bark Extract	표준명 있음
+253	프로판다이올	Propanediol	표준명 있음
+254	프로필헵틸카프릴레이트	Propylheptyl Caprylate	표준명 있음
+255	프룩토올리고사카라이드	Fructooligosaccharides	표준명 있음
+256	필리핀오렌지껍질오일	Citrus Nobilis (Mandarin Orange) Peel Oil	표준명 있음
+257	하이드로제네이티드레시틴	Hydrogenated Lecithin	표준명 있음
+258	하이드로제네이티드폴리(C6-14올레핀)	Hydrogenated Poly(C6-14 Olefin)	표준명 있음
+259	하이드록시아세토페논	Hydroxyacetophenone	표준명 있음
+260	하이드록시프로필메틸셀룰로오스	Hydroxypropyl Methylcellulose	표준명 있음
+261	하이드록시프로필메틸셀룰로오스스테아록시에터	Hydroxypropyl Methylcellulose Stearoxy Ether	표준명 있음
+262	하이드록시피나콜론레티노에이트	Hydroxypinacolone Retinoate	표준명 있음
+263	하이드롤라이즈드디엔에이	Hydrolyzed DNA	표준명 있음
+264	하이드롤라이즈드소듐하이알루로네이트	Hydrolyzed Sodium Hyaluronate	표준명 있음
+265	하이드롤라이즈드하이알루로닉애씨드	Hydrolyzed Hyaluronic Acid	표준명 있음
+266	하이알루로닉애씨드	Hyaluronic Acid	표준명 있음
+267	한련초잎추출물	Eclipta Prostrata Leaf Extract	표준명 있음
+268	한련초추출물	Eclipta Prostrata Extract	표준명 있음
+269	해바라기씨오일	Helianthus Annuus (Sunflower) Seed Oil	표준명 있음
+270	향료	Fragrance	표준명 있음
+271	허니서클추출물	Lonicera Caprifolium (Honeysuckle) Extract	표준명 있음
+272	헥토라이트	Quaternium-18 Hectorite	표준명 있음
+273	호모살레이트	Homosalate	표준명 있음
+274	호호바씨오일	Simmondsia Chinensis (Jojoba) Seed Oil	표준명 있음
+275	홀리바질잎추출물	Ocimum Sanctum Leaf Extract	표준명 있음
+276	홍삼추출물	Panax Ginseng Root Extract	표준명 있음
+277	홍차추출물	Camellia Sinensis Leaf Extract	표준명 있음
+278	황련뿌리추출물	Coptis Japonica Root Extract	표준명 있음
+279	황색산화철	Iron Oxide Yellow	표준명 있음
+280	효모/쌀발효여과물	Saccharomyces/Rice Ferment Filtrate	표준명 있음
+281	효모발효물	Saccharomyces Ferment	표준명 있음
+282	흰서양송로추출물	Tuber Magnatum Extract	표준명 있음
