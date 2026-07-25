@@ -38,10 +38,23 @@ K-뷰티의 위상이 높아지면서 외국인 관광객에게 화장품 쇼핑
 ## 프로젝트 구조
 
 ```
-prompts/v2/     v2 프롬프트 및 참조 파일
-data/           입력 성분 리스트, 알레르겐 참조표
-results/v2/     v2 테스트 결과
-log/            일일 개발 로그
+prompts/            버전별 프롬프트
+  v1.md, v4.md        단일 파일 버전(v1, v4 개인화 모듈)
+  v2/, v3/            버전별 프롬프트 + 참조 파일
+  modules/            서브 모듈 (환경 분석: 리프세이프 + 미세플라스틱)
+data/               입력 성분 리스트 및 참조 자료
+  01~12번 제품 문서    제품별 원본 자료(전성분·시험 포인트·체크리스트)
+  inputs/             제품별 전성분만 추출한 원본
+  showcase/           GitHub Pages 쇼케이스용 제품 JSON (product-11.json 등)
+  allergen_reference.tsv, allergen-synonyms.md, unique_ingredients.txt
+                      알레르겐/성분 참조표
+docs/               GitHub Pages 소스 (저장소 루트가 Pages 소스)
+  index.html          쇼케이스 화면(분석 결과)
+  palette-preview.html 색 팔레트 후보 비교용
+  Sunhan App Mockup.* UI 목업 원본(html/png, 참조용 — 수정 금지)
+results/            버전별(v2, v2.1, v3, v3.1) 테스트 결과
+outputs/            v1 테스트 원시 출력
+log/                일일 개발 로그
 ```
 
 ## 🗓 Progress Log
