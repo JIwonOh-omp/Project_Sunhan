@@ -1,0 +1,34 @@
+## 2026-07-26 — GitHub Pages 쇼케이스 1단계 (제품11 분석 결과 화면)
+
+### 한 일
+- GitHub Pages 정적 쇼케이스 1단계 범위 확정: 제품 11번 하나로 화면2(Analysis
+  result)만 먼저 구현, 데이터 스키마부터 확정
+- `data/showcase/product-11.json` 신설: 66성분 스키마 골격
+  - 원 스키마에 `analyzed`(제품/환경 각각) 필드 추가 — 빈 배열이 "확인함(안전)"인지
+    "아직 확인 안 함"인지 구분 안 되는 문제 방지 (v3/v4 위음성 방지 원칙과 동일)
+  - `status`에 `"pending"` 추가(기존 ok/caution 2종)
+- `docs/index.html` 신설: 화면2 정적 페이지. 목업의 폰 프레임/상태바/탭바는
+  제외하고 실제 콘텐츠 컴포넌트만 반응형(max-width 컨테이너)으로 재구성.
+  개인화 매칭은 순수 JS 문자열 매칭(LLM 미사용), 성분 번호는 JSON의 `no` 그대로 상속
+- 색 팔레트 후보 3종(Moss/Forest Pine/Fern Olive) 제안 → `docs/palette-preview.html`
+  로 정적 비교 페이지 별도 제작(fetch 없어 로컬에서 더블클릭으로 바로 비교 가능)
+  → 사용자가 A(Moss) 선택, index.html에 반영
+- 다크모드 자동전환(`prefers-color-scheme`) 제거 — 목업이 항상 밝은 배경이라
+  사용자 요청으로 라이트 고정
+- GitHub Pages 활성화 확인(사용자가 소스를 main/root로 설정) → 빌드 성공 확인
+- `data/showcase/product-11.json` placeholder를 실제 분석 결과로 채움
+  - 번역/번호: `results/v3/v3_result_11_run2.md`의 REDO 이후 최종 66개 완주분만
+    사용(1차 `[n/45]` 절단분 무시)
+  - 해설: 같은 파일 SECTION 2가 66개 전부 커버해 보충 소스(v2) 불필요
+  - 알레르겐 6종(Fragrance+EU 5종) caution 처리, 나머지 60종 ok
+  - reef/microplastic tier 전부 없음, 폴리비닐알코올은 lookalike_ignored로 억제
+
+### 결과
+- Pages 빌드 성공, `docs/index.html` · `data/showcase/product-11.json` 둘 다
+  라이브 URL에서 200 확인, 실제 값(caution 6건 등)까지 curl로 검증 완료
+- 사용자가 로컬 `file://`로 열어봐서 fetch가 CORS로 막혀 "안 바뀐 것처럼" 보였던
+  이슈 발견 → 라이브 GitHub Pages URL로 안내해서 최종 확인 완료
+
+### 다음
+- 화면1(온보딩) · 화면3(coming soon) 구현
+- 나머지 11개 제품으로 확장
