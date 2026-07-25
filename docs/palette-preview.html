@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunhan — Palette Preview (A/B/C)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#F4F1EA;font-family:'Manrope',system-ui,sans-serif;padding:32px 20px 60px;color:#3A3A38}
+  h1{font-size:20px;font-weight:800;margin:0 0 6px}
+  p.lead{font-size:13px;color:#9A968E;margin:0 0 32px}
+
+  .cols{display:flex;gap:24px;flex-wrap:wrap;max-width:1100px;margin:0 auto}
+  .col{flex:1 1 300px;min-width:280px}
+  .col h2{font-size:15px;font-weight:800;margin:0 0 4px}
+  .col .hex{font-size:11.5px;color:#9A968E;margin:0 0 14px;font-family:monospace}
+
+  .swatch-row{display:flex;gap:8px;margin:0 0 16px}
+  .swatch{flex:1;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+        font-size:10.5px;font-weight:700;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+
+  .grad-bar{height:56px;border-radius:14px;margin:0 0 16px}
+
+  .demo-card{background:#fff;border:1px solid #EFEBE2;border-radius:18px;padding:16px;margin:0 0 12px;
+        box-shadow:0 4px 16px -10px rgba(0,0,0,.15)}
+  .demo-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 0 12px}
+  .demo-btn{width:100%;border:none;padding:12px;border-radius:12px;color:#fff;font-family:inherit;
+        font-size:13.5px;font-weight:700;cursor:pointer;margin:0 0 10px}
+  .demo-badge{display:inline-block;padding:4px 10px;border-radius:10px;font-size:11px;font-weight:800}
+  .demo-alert{border-radius:16px;padding:14px;font-size:12.5px;line-height:1.5}
+</style>
+</head>
+<body>
+
+<h1>Palette candidates — side by side</h1>
+<p class="lead">Static preview only (no fetch, no server needed — just open this file directly in a browser). Pick one and it becomes the default in docs/index.html.</p>
+
+<div class="cols">
+
+  <!-- A: Moss -->
+  <div class="col">
+    <h2>A · Moss <span style="font-weight:600;color:#9A968E">(현재 기본)</span></h2>
+    <div class="hex">accent #3D5C34 · dark #2A3F24 · grad #4A6B3F → #263A20</div>
+    <div class="swatch-row">
+      <div class="swatch" style="background:#3D5C34">accent</div>
+      <div class="swatch" style="background:#2A3F24">dark</div>
+      <div class="swatch" style="background:#E1E8DA;color:#3D5C34;text-shadow:none">tint</div>
+    </div>
+    <div class="grad-bar" style="background:linear-gradient(135deg,#4A6B3F,#263A20)"></div>
+    <div class="demo-card">
+      <div class="demo-icon" style="background:linear-gradient(135deg,#4A6B3F,#263A20)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="#fff" stroke-width="2"/><path d="M12 2.5v2.6M12 18.9v2.6M21.5 12h-2.6M5.1 12H2.5M18.7 5.3l-1.8 1.8M7.1 16.9l-1.8 1.8M18.7 18.7l-1.8-1.8M7.1 7.1L5.3 5.3" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <button class="demo-btn" style="background:#3D5C34">Continue</button>
+      <span class="demo-badge" style="background:#E1E8DA;color:#2A3F24">OK</span>
+      <span class="demo-badge" style="background:#FBF0DD;color:#B5822F;margin-left:6px">Caution</span>
+      <div class="demo-alert" style="background:#E1E8DA;border:1.5px solid #3D5C34;margin-top:12px">
+        <b style="color:#2A3F24">Contains Fragrance (#3)</b> — on your avoid list.
+      </div>
+    </div>
+  </div>
+
+  <!-- B: Forest Pine (current default) -->
+  <div class="col">
+    <h2>B · Forest Pine</h2>
+    <div class="hex">accent #2F5233 · dark #1F3823 · grad #3D6B44 → #1C2F1F</div>
+    <div class="swatch-row">
+      <div class="swatch" style="background:#2F5233">accent</div>
+      <div class="swatch" style="background:#1F3823">dark</div>
+      <div class="swatch" style="background:#E0E8DE;color:#2F5233;text-shadow:none">tint</div>
+    </div>
+    <div class="grad-bar" style="background:linear-gradient(135deg,#3D6B44,#1C2F1F)"></div>
+    <div class="demo-card">
+      <div class="demo-icon" style="background:linear-gradient(135deg,#3D6B44,#1C2F1F)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="#fff" stroke-width="2"/><path d="M12 2.5v2.6M12 18.9v2.6M21.5 12h-2.6M5.1 12H2.5M18.7 5.3l-1.8 1.8M7.1 16.9l-1.8 1.8M18.7 18.7l-1.8-1.8M7.1 7.1L5.3 5.3" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <button class="demo-btn" style="background:#2F5233">Continue</button>
+      <span class="demo-badge" style="background:#E0E8DE;color:#1F3823">OK</span>
+      <span class="demo-badge" style="background:#FBF0DD;color:#B5822F;margin-left:6px">Caution</span>
+      <div class="demo-alert" style="background:#E0E8DE;border:1.5px solid #2F5233;margin-top:12px">
+        <b style="color:#1F3823">Contains Fragrance (#3)</b> — on your avoid list.
+      </div>
+    </div>
+  </div>
+
+  <!-- C: Fern Olive -->
+  <div class="col">
+    <h2>C · Fern Olive</h2>
+    <div class="hex">accent #4A5D2E · dark #333F1F · grad #5C7239 → #2C3819</div>
+    <div class="swatch-row">
+      <div class="swatch" style="background:#4A5D2E">accent</div>
+      <div class="swatch" style="background:#333F1F">dark</div>
+      <div class="swatch" style="background:#E8EAD9;color:#4A5D2E;text-shadow:none">tint</div>
+    </div>
+    <div class="grad-bar" style="background:linear-gradient(135deg,#5C7239,#2C3819)"></div>
+    <div class="demo-card">
+      <div class="demo-icon" style="background:linear-gradient(135deg,#5C7239,#2C3819)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="#fff" stroke-width="2"/><path d="M12 2.5v2.6M12 18.9v2.6M21.5 12h-2.6M5.1 12H2.5M18.7 5.3l-1.8 1.8M7.1 16.9l-1.8 1.8M18.7 18.7l-1.8-1.8M7.1 7.1L5.3 5.3" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <button class="demo-btn" style="background:#4A5D2E">Continue</button>
+      <span class="demo-badge" style="background:#E8EAD9;color:#333F1F">OK</span>
+      <span class="demo-badge" style="background:#FBF0DD;color:#B5822F;margin-left:6px">Caution</span>
+      <div class="demo-alert" style="background:#E8EAD9;border:1.5px solid #4A5D2E;margin-top:12px">
+        <b style="color:#333F1F">Contains Fragrance (#3)</b> — on your avoid list.
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
