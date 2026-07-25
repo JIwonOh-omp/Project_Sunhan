@@ -55,11 +55,11 @@
 
 | INCI | 한글표준(초안) | 이명/표기변형 | 검증 |
 |---|---|---|---|
-| Eugenol | 유제놀 | 오이게놀 | 미검증 |
+| Eugenol | 유제놀 | 오이게놀 | 검증 |
 | Isoeugenol | 아이소유제놀 | 이소유제놀 | `allergen_reference.tsv` 대조 ✓ (4행) |
-| Coumarin | 쿠마린 | — | 미검증 |
+| Coumarin | 쿠마린 | — | 검증 |
 | Benzyl Alcohol | 벤질알코올 | 벤질알콜 | `allergen_reference.tsv` 대조 ✓ (2행) — "알코올" 표기 재확인 |
-| Benzyl Benzoate | 벤질벤조에이트 | — | 미검증 |
+| Benzyl Benzoate | 벤질벤조에이트 | — | 검증 |
 | Benzyl Salicylate | 벤질살리실레이트 | — | 미검증 |
 | Benzyl Cinnamate | 벤질신나메이트 | — | 미검증 |
 | Cinnamal | 신남알 | 신나말, 시나몬알데하이드 | 미검증 (축약형 "-알" 표기, 위 메모 참고) |
