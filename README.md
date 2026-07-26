@@ -49,9 +49,18 @@ data/               입력 성분 리스트 및 참조 자료
   allergen_reference.tsv, allergen-synonyms.md, unique_ingredients.txt
                       알레르겐/성분 참조표
 docs/               GitHub Pages 소스 (저장소 루트가 Pages 소스)
-  index.html          쇼케이스 화면(분석 결과)
+  index.html          앱 랜딩(첫 화면) — 가치제안 1줄 + 3요약 + "Get Started" → profile.html.
+                       한 번 진입하면 localStorage 플래그로 재방문 시 자동 스킵(search.html로).
+                       ?show=1 또는 각 화면 로고 탭으로 다시 볼 수 있음
+  profile.html        온보딩/프로필(FYP) 화면(구 index.html) — 선택값을 sessionStorage로 전달
+  search.html         제품 검색(Home) — 로컬 12개 중 필터링, "스캔" 버튼은 샘플(11번) 연출
+  analysis.html       분석 결과 + For You 카드 화면 — 11번 제품 전용, "Save to Skin Journey" 버튼
+  skin-journey.html   저장한 제품 기록(Journey 탭) — localStorage, 여행사진 추가는 Coming soon
+  community.html      Coming soon 화면(Community 탭) — 정적 비전 카드
   palette-preview.html 색 팔레트 후보 비교용
   Sunhan App Mockup.* UI 목업 원본(html/png, 참조용 — 수정 금지)
+진입 흐름: 랜딩(index.html) → Get Started → 프로필(profile.html) → 이하 탭 4개(Home·Journey·Community·Profile)
+프로젝트/대회 소개는 앱 UI에 없음 — 이 README가 "About this project" 역할
 results/            버전별(v2, v2.1, v3, v3.1) 테스트 결과
 outputs/            v1 테스트 원시 출력
 log/                일일 개발 로그
@@ -111,6 +120,16 @@ REDO 최종본으로 확정 — 66성분·알레르겐 6종 caution·reef/microp
 폴리비닐알코올 lookalike 억제까지 실데이터로 채워 검증 완료. Pages는 main/root를
 소스로 활성화, 빌드·라이브 fetch 둘 다 확인.
 
+### GitHub Pages 쇼케이스 2~6단계 — 온보딩부터 랜딩까지 전체 흐름 완성
+화면1(온보딩) 구현 → 흐름을 온보딩→검색/선택→결과로 재배치 → 상시 리스트를
+걷어내고 검색(로컬 필터)·스캔(샘플 연출, 정직성 라벨 명시) 두 진입로로 재구성 →
+탭바를 Home·Skin Journey·Community·Profile 4개로 정리하고 Skin Journey를
+`localStorage` 기반 실기능(저장·조회·삭제)으로 구현, Community는 순수 정적
+Coming soon으로 분리 → 앱 랜딩 화면 신설(가치제안 "Understand what's really in
+your Korean skincare.", Get Started→프로필 진입, 재방문 시 자동 스킵). 제품11의
+실제 제품명(WHIPPED Mugtree Vegan Cookie Clay Pack Cleanser)도 원본 자료 확인 후
+반영. 전 구간 헤드리스 브라우저로 실제 클릭 재현 검증. 상세: [log/daily-0727](log/daily-0727)
+
 ## 개발 현황
 - [x] v1: 베이스라인 프롬프트 + 실패 유형 8가지 도출
 - [x] v2: 도메인 지식 주입 (성분 대응표·EU 알레르겐 확대판·
@@ -120,4 +139,11 @@ REDO 최종본으로 확정 — 66성분·알레르겐 6종 caution·reef/microp
 - [x] 환경 분석 모듈: 리프세이프 + 미세플라스틱 Tier 판정 통합, EU 알레르겐 동의어표 작성
 - [x] v4: 개인화 분석("For You" 카드) 모듈 설계
 - [x] GitHub Pages 쇼케이스 1단계: 제품11 분석 결과 화면 + 스키마 확정, 실데이터 반영
-- [ ] 쇼케이스 확장: 화면1(온보딩)·화면3(coming soon) 구현, 나머지 11개 제품 (예정)
+- [x] GitHub Pages 쇼케이스 2단계: 화면1(온보딩) 구현 + 개인화 배선(sessionStorage)
+- [x] GitHub Pages 쇼케이스 3단계: 온보딩→검색/선택→결과 흐름 재배치, 탭바 네비, Coming soon 화면
+- [x] GitHub Pages 쇼케이스 4단계: 상시 리스트 제거, 검색(로컬 필터)·스캔(샘플 연출) 두 진입로로 재구성 + 정직성 라벨
+- [x] GitHub Pages 쇼케이스 5단계: 탭바 4개(Home·Journey·Community·Profile) 재구성,
+      Skin Journey 실기능(localStorage 저장·조회·삭제) 구현, Community는 정적 Coming soon으로 분리
+- [x] GitHub Pages 쇼케이스 6단계: 앱 랜딩 화면 신설(가치제안 "Understand what's really in
+      your Korean skincare.") + Get Started→프로필 진입 흐름, 재방문 시 랜딩 자동 스킵(localStorage)
+- [ ] 쇼케이스 확장: 나머지 11개 제품 실데이터 채우기 (예정)

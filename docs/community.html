@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunhan — Community</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:#3D5C34; --accent-dark:#2A3F24; --accent-tint:#E1E8DA;
+    --accent-grad: linear-gradient(135deg,#4A6B3F,#263A20);
+    --bg:#F4F1EA;
+    --card:#FFFFFF;
+    --border:#EFEBE2;
+    --ink:#3A3A38;
+    --ink-soft:#6E6A62;
+    --ink-faint:#9A968E;
+    --ink-fainter:#B0ABA1;
+    --pending-bg:#EFEBE2; --pending-fg:#9A968E;
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);font-family:'Manrope',system-ui,sans-serif;
+       -webkit-font-smoothing:antialiased;color:var(--ink)}
+  a{color:var(--accent);text-decoration:none}
+
+  header.site{padding:28px 24px 18px;display:flex;align-items:baseline;gap:14px;
+       max-width:640px;margin:0 auto}
+  header.site .wordmark{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;
+       font-size:26px;letter-spacing:-.01em;color:var(--accent-dark)}
+  header.site .tagline{font-size:13px;color:var(--ink-faint)}
+
+  main{max-width:640px;margin:0 auto;padding:0 20px 110px}
+
+  .eyebrow{display:inline-flex;align-items:center;gap:7px;padding:6px 13px;border-radius:16px;
+       background:var(--pending-bg);margin:8px 0 26px}
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--ink-fainter)}
+  .eyebrow span.label{font-size:12px;font-weight:700;letter-spacing:.04em;
+       color:var(--ink-faint);text-transform:uppercase}
+
+  h1.title{margin:0 0 8px;font-size:24px;font-weight:800;letter-spacing:-.02em;
+       color:var(--ink-fainter);line-height:1.25}
+  p.subtitle{margin:0 0 26px;font-size:14px;line-height:1.5;color:var(--ink-faint)}
+
+  .feature-card{background:var(--card);border:1px solid var(--border);border-radius:24px;
+       padding:24px 22px;margin:0 0 18px;box-shadow:0 8px 26px -14px rgba(60,60,58,.18);opacity:.9}
+  .feature-icon{width:56px;height:56px;border-radius:16px;background:var(--accent-tint);
+       display:flex;align-items:center;justify-content:center;margin:0 0 16px}
+  .feature-name{font-size:18px;font-weight:800;letter-spacing:-.01em;color:var(--ink-soft);margin:0 0 8px}
+  .feature-desc{margin:0 0 16px;font-size:13.5px;line-height:1.55;color:var(--ink-faint)}
+  .feature-tags{display:flex;flex-wrap:wrap;gap:8px}
+  .feature-tag{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:14px;
+       font-size:12px;font-weight:700;background:var(--pending-bg);color:var(--ink-faint)}
+
+  .notify-btn{width:100%;margin-top:6px;border:1.5px solid var(--border);padding:15px;
+       border-radius:16px;background:transparent;color:var(--ink-faint);font-family:inherit;
+       font-size:15px;font-weight:700;cursor:not-allowed}
+
+  .tabbar{position:fixed;left:0;right:0;bottom:0;background:#fff;
+       border-top:1px solid var(--border);z-index:20}
+  .tabbar-inner{max-width:640px;margin:0 auto;display:flex;
+       padding:10px 20px calc(10px + env(safe-area-inset-bottom))}
+  .tab-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;
+       font-size:11px;font-weight:700;color:var(--ink-fainter);text-decoration:none;padding:4px 0}
+  .tab-item.active{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a class="wordmark" href="index.html?show=1">sunhan</a>
+  <span class="tagline">K-beauty ingredient translation &amp; safety analysis</span>
+</header>
+
+<main>
+  <div class="eyebrow"><span class="dot"></span><span class="label">Coming soon</span></div>
+
+  <h1 class="title">Built with fellow<br>travelers</h1>
+  <p class="subtitle">A place to compare notes on ingredients with other travelers — not live yet.</p>
+
+  <div class="feature-card">
+    <div class="feature-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="8.5" cy="9" r="3" stroke="var(--accent)" stroke-width="1.8"/><circle cx="16" cy="10.5" r="2.4" stroke="var(--accent)" stroke-width="1.8"/><path d="M2.5 19c0-2.9 2.7-5 6-5s6 2.1 6 5" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"/><path d="M14.5 14.5c2.6.3 4.5 2 4.5 4.2" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </div>
+    <div class="feature-name">Community</div>
+    <p class="feature-desc">Share and read real reviews from other travelers about how specific ingredients worked (or didn't) for them — a place to swap notes before you buy.</p>
+    <div class="feature-tags">
+      <span class="feature-tag">Ingredient reviews</span>
+      <span class="feature-tag">Traveler Q&amp;A</span>
+    </div>
+  </div>
+
+  <button class="notify-btn" disabled>Notify me when it's ready</button>
+</main>
+
+<nav class="tabbar">
+  <div class="tabbar-inner">
+    <a href="search.html" class="tab-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 10.5L12 3l9 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 9.5V20h14V9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Home</span>
+    </a>
+    <a href="skin-journey.html" class="tab-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 5.5A1.5 1.5 0 015.5 4H11v16H5.5A1.5 1.5 0 014 18.5v-13z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M20 5.5A1.5 1.5 0 0018.5 4H13v16h5.5a1.5 1.5 0 001.5-1.5v-13z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      <span>Journey</span>
+    </a>
+    <a href="community.html" class="tab-item active">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="9" r="2.4" stroke="currentColor" stroke-width="2"/><path d="M3 19c0-3 2.7-5.2 6-5.2s6 2.2 6 5.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M15.5 14.3c2.5.3 4.5 2 4.5 4.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>Community</span>
+    </a>
+    <a href="profile.html" class="tab-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="2"/><path d="M5 20c0-3.3 3.1-6 7-6s7 2.7 7 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>Profile</span>
+    </a>
+  </div>
+</nav>
+
+</body>
+</html>

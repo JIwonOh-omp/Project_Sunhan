@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunhan — Ingredient Analysis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     COLOR PALETTE CANDIDATES — pick one, see summary for previews.
+     Mockup used a light sage (#8BA888 / #789775). Feedback: go
+     darker / more "grass" + a green gradient. Three candidates
+     below as CSS variables; candidate B is wired up as default.
+     Swap by uncommenting the block you want.
+     ============================================================ */
+
+  :root{
+    /* ---- Candidate A: "Moss" (default) ---- */
+    --accent:#3D5C34; --accent-dark:#2A3F24; --accent-tint:#E1E8DA;
+    --accent-grad: linear-gradient(135deg,#4A6B3F,#263A20);
+
+    /* ---- Candidate B: "Forest Pine" ---- */
+    /* --accent:#2F5233; --accent-dark:#1F3823; --accent-tint:#E0E8DE;
+       --accent-grad: linear-gradient(135deg,#3D6B44,#1C2F1F); */
+
+    /* ---- Candidate C: "Fern Olive" ---- */
+    /* --accent:#4A5D2E; --accent-dark:#333F1F; --accent-tint:#E8EAD9;
+       --accent-grad: linear-gradient(135deg,#5C7239,#2C3819); */
+
+    --bg:#F4F1EA;
+    --card:#FFFFFF;
+    --border:#EFEBE2;
+    --border-strong: var(--accent);
+    --ink:#3A3A38;
+    --ink-soft:#6E6A62;
+    --ink-faint:#9A968E;
+    --ink-fainter:#B0ABA1;
+    --ok-bg:#E8F0E6; --ok-fg:#4E7B4B;
+    --caution-bg:#FBF0DD; --caution-fg:#B5822F;
+    --pending-bg:#EFEBE2; --pending-fg:#9A968E;
+  }
+
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);font-family:'Manrope',system-ui,sans-serif;
+       -webkit-font-smoothing:antialiased;color:var(--ink)}
+  a{color:var(--accent);text-decoration:none}
+
+  header.site{padding:28px 24px 18px;display:flex;align-items:baseline;gap:14px;
+       max-width:640px;margin:0 auto}
+  header.site .wordmark{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;
+       font-size:26px;letter-spacing:-.01em;color:var(--accent-dark)}
+  header.site .tagline{font-size:13px;color:var(--ink-faint)}
+
+  main{max-width:640px;margin:0 auto;padding:0 20px 110px}
+
+  [hidden]{display:none !important}
+
+  .tabbar{position:fixed;left:0;right:0;bottom:0;background:#fff;
+       border-top:1px solid var(--border);z-index:20}
+  .tabbar-inner{max-width:640px;margin:0 auto;display:flex;
+       padding:10px 20px calc(10px + env(safe-area-inset-bottom))}
+  .tab-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;
+       font-size:11px;font-weight:700;color:var(--ink-fainter);text-decoration:none;padding:4px 0}
+  .tab-item.active{color:var(--accent)}
+  .pending-banner{display:flex;align-items:center;gap:8px;padding:10px 16px;
+       border-radius:14px;background:var(--pending-bg);color:var(--pending-fg);
+       font-size:12.5px;font-weight:700;margin:0 0 20px}
+
+  .product-header{display:flex;gap:16px;align-items:center;margin:6px 0 24px}
+  .product-icon{width:64px;height:64px;flex:none;border-radius:18px;background:var(--accent-grad);
+       display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px -8px rgba(0,0,0,.25)}
+  .product-name-ko{font-size:19px;font-weight:800;letter-spacing:-.01em;line-height:1.3}
+  .product-name-en{font-size:13px;color:var(--ink-faint);margin-top:2px}
+  .product-count{font-size:13px;color:var(--ink-faint);margin-top:6px}
+
+  .card{background:var(--card);border:1px solid var(--border);border-radius:20px;
+       padding:20px 20px 8px;margin:0 0 20px;box-shadow:0 4px 20px -12px rgba(0,0,0,.15)}
+  .card-title{font-size:14.5px;font-weight:800;margin:0 0 2px}
+  .card-subtitle{font-size:12px;color:var(--ink-fainter);margin:0 0 12px}
+
+  .ing-row{display:flex;align-items:center;justify-content:space-between;gap:12px;
+       padding:12px 0;border-top:1px solid var(--border)}
+  .ing-row .no{font-size:11px;font-weight:800;color:var(--ink-fainter);
+       font-variant-numeric:tabular-nums;flex:none;width:38px}
+  .ing-row .names{min-width:0}
+  .ing-row .inci{font-size:15px;font-weight:700}
+  .ing-row .ko{font-size:12px;color:var(--ink-fainter);margin-top:1px}
+  .badge{padding:5px 11px;border-radius:12px;font-size:11.5px;font-weight:800;flex:none}
+  .badge.ok{background:var(--ok-bg);color:var(--ok-fg)}
+  .badge.caution{background:var(--caution-bg);color:var(--caution-fg)}
+  .badge.pending{background:var(--pending-bg);color:var(--pending-fg)}
+
+  .expand-row{text-align:center;padding:12px 0 10px;border-top:1px solid var(--border);
+       margin-top:2px;cursor:pointer;font-size:12.5px;font-weight:700;color:var(--accent)}
+
+  .alerts-card{background:var(--accent-tint);border:1.5px solid var(--accent);border-radius:20px;
+       padding:20px;margin:0 0 20px;box-shadow:0 8px 24px -14px rgba(0,0,0,.2)}
+  .alerts-title{display:flex;align-items:center;gap:8px;margin:0 0 14px;font-size:14.5px;
+       font-weight:800;color:var(--accent-dark)}
+  .alert-line{display:flex;gap:10px;margin:0 0 13px;font-size:13px;line-height:1.5;color:var(--ink-soft)}
+  .alert-line:last-child{margin-bottom:0}
+  .alert-line b{color:var(--ink)}
+  .alert-icon{flex:none;margin-top:1px}
+
+  .save-row{display:flex;flex-direction:column;align-items:center;gap:8px;margin:0 0 20px}
+  .save-btn{width:100%;border:1.5px solid var(--accent);padding:14px;border-radius:16px;
+       background:#fff;color:var(--accent);font-family:inherit;font-size:14.5px;font-weight:700;
+       cursor:pointer;transition:background .15s}
+  .save-btn:hover{background:var(--accent-tint)}
+  .save-btn.saved{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .save-status{font-size:12px;color:var(--ink-fainter);min-height:16px}
+
+  .disclaimer{text-align:center;font-size:11.5px;color:var(--ink-fainter);margin-top:8px}
+
+  .demo-note{font-size:11.5px;color:var(--ink-fainter);text-align:center;margin:0 0 20px}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a class="wordmark" href="index.html?show=1">sunhan</a>
+  <span class="tagline">K-beauty ingredient translation &amp; safety analysis</span>
+</header>
+
+<main>
+  <p class="demo-note">Stage 1 showcase — schema &amp; layout only. Ingredient data below is placeholder until translation/analysis is filled in.</p>
+
+  <div id="pending-banner" class="pending-banner" hidden>⏳ Analysis pending — showing structure with placeholder data.</div>
+
+  <div class="product-header">
+    <div class="product-icon">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="#fff" stroke-width="2"/><path d="M12 2.5v2.6M12 18.9v2.6M21.5 12h-2.6M5.1 12H2.5M18.7 5.3l-1.8 1.8M7.1 16.9l-1.8 1.8M18.7 18.7l-1.8-1.8M7.1 7.1L5.3 5.3" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+    </div>
+    <div>
+      <div class="product-name-ko" id="product-name">Loading…</div>
+      <div class="product-name-en" id="product-name-en"></div>
+      <div class="product-count" id="product-count"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Full ingredient list</div>
+    <div class="card-subtitle">Translated · Korean → English</div>
+    <div id="ingredient-list"></div>
+    <div class="expand-row" id="expand-toggle"></div>
+  </div>
+
+  <div class="alerts-card">
+    <div class="alerts-title">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+      For You — Personalized Alerts
+    </div>
+    <div id="alert-lines"></div>
+  </div>
+
+  <div class="save-row">
+    <button class="save-btn" id="save-journey-btn" type="button">Save to Skin Journey</button>
+    <span class="save-status" id="save-status"></span>
+  </div>
+
+  <p class="disclaimer">Analysis based on the ingredient label only.</p>
+</main>
+
+<nav class="tabbar">
+  <div class="tabbar-inner">
+    <a href="search.html" class="tab-item active">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 10.5L12 3l9 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 9.5V20h14V9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Home</span>
+    </a>
+    <a href="skin-journey.html" class="tab-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 5.5A1.5 1.5 0 015.5 4H11v16H5.5A1.5 1.5 0 014 18.5v-13z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M20 5.5A1.5 1.5 0 0018.5 4H13v16h5.5a1.5 1.5 0 001.5-1.5v-13z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      <span>Journey</span>
+    </a>
+    <a href="community.html" class="tab-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="9" r="2.4" stroke="currentColor" stroke-width="2"/><path d="M3 19c0-3 2.7-5.2 6-5.2s6 2.2 6 5.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M15.5 14.3c2.5.3 4.5 2 4.5 4.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>Community</span>
+    </a>
+    <a href="profile.html" class="tab-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="2"/><path d="M5 20c0-3.3 3.1-6 7-6s7 2.7 7 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>Profile</span>
+    </a>
+  </div>
+</nav>
+
+<script>
+/* ------------------------------------------------------------------
+   PROFILE — comes from the onboarding screen (index.html) via
+   sessionStorage. Falls back to a demo default when this page is
+   opened directly (e.g. no onboarding step run in this session).
+------------------------------------------------------------------ */
+const DEFAULT_PROFILE = {
+  skinType: "Sensitive",
+  avoidList: ["Fragrance", "Linalool"]
+};
+
+function loadProfile() {
+  const raw = sessionStorage.getItem("sunhanProfile");
+  if (!raw) return DEFAULT_PROFILE;
+  try {
+    const parsed = JSON.parse(raw);
+    return {
+      skinType: parsed.skinType || null,
+      avoidList: Array.isArray(parsed.avoidList) ? parsed.avoidList : []
+    };
+  } catch (e) {
+    return DEFAULT_PROFILE;
+  }
+}
+
+const PROFILE = loadProfile();
+
+/* ------------------------------------------------------------------
+   Avoid-chip → ingredient (Korean) name correspondence table.
+   Only the 6 onboarding chip options are covered. Alcohol and
+   Essential oils are categories, not specific ingredient names —
+   intentionally left out of this table and never matched against
+   (no guessing which listed ingredient they might refer to).
+------------------------------------------------------------------ */
+const AVOID_MATCH_TABLE = {
+  "Fragrance": "향료",
+  "Linalool": "리날룰",
+  "Limonene": "리모넨",
+  "Citral": "시트랄"
+};
+
+const DATA_URL = "../data/showcase/product-11.json";
+
+fetch(DATA_URL)
+  .then(r => {
+    if (!r.ok) throw new Error("product-11.json fetch failed: " + r.status);
+    return r.json();
+  })
+  .then(render)
+  .catch(err => {
+    document.getElementById("product-name").textContent = "Failed to load data";
+    console.error(err);
+  });
+
+let CURRENT_PRODUCT = null;
+
+function render(product) {
+  CURRENT_PRODUCT = product;
+
+  document.getElementById("product-name").textContent = product.name_ko || "(product name pending)";
+  document.getElementById("product-name-en").textContent = product.name_en || "";
+  document.getElementById("product-count").textContent =
+    `${product.ingredient_count} ingredients analyzed`;
+
+  if (!product.analyzed) {
+    document.getElementById("pending-banner").hidden = false;
+  }
+
+  renderIngredientList(product.ingredients);
+  renderAlerts(product);
+  initSaveButton(product);
+}
+
+/* ------------------------------------------------------------------
+   Skin Journey — a personal log of analyzed products, kept in
+   localStorage (not sessionStorage) so it survives across visits.
+   One entry per productId; re-saving refreshes date/hits instead of
+   piling up duplicates. Text data only — no photos (that's the
+   Coming soon vision piece on the Skin Journey tab).
+------------------------------------------------------------------ */
+const JOURNEY_KEY = "sunhanSkinJourney";
+
+function loadJourney() {
+  try {
+    const raw = localStorage.getItem(JOURNEY_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function initSaveButton(product) {
+  const btn = document.getElementById("save-journey-btn");
+  const status = document.getElementById("save-status");
+
+  const existing = loadJourney().find(e => e.productId === product.id);
+  if (existing) {
+    btn.classList.add("saved");
+    status.textContent = `Saved to your Skin Journey on ${existing.savedDate}.`;
+  }
+
+  btn.addEventListener("click", () => {
+    const hits = findAvoidHits(product.ingredients, PROFILE.avoidList);
+    const entry = {
+      productId: product.id,
+      name: product.name_en || product.name_ko,
+      savedDate: new Date().toISOString().slice(0, 10),
+      allergenHits: [...new Set(hits.map(h => h.inci))]
+    };
+    const journey = loadJourney().filter(e => e.productId !== entry.productId);
+    journey.unshift(entry);
+    localStorage.setItem(JOURNEY_KEY, JSON.stringify(journey));
+
+    btn.classList.add("saved");
+    status.textContent = `Saved to your Skin Journey on ${entry.savedDate}.`;
+  });
+}
+
+/* ---- ingredient list: show first 4, expand to show all ---- */
+function renderIngredientList(ingredients) {
+  const listEl = document.getElementById("ingredient-list");
+  const toggleEl = document.getElementById("expand-toggle");
+  const total = ingredients.length;
+  let expanded = false;
+
+  function draw() {
+    const shown = expanded ? ingredients : ingredients.slice(0, 4);
+    listEl.innerHTML = shown.map(rowHtml).join("");
+    toggleEl.textContent = expanded
+      ? "Show less"
+      : `View all ${total} ingredients`;
+  }
+
+  function rowHtml(item) {
+    const status = item.status || "pending";
+    const badgeClass = status === "ok" ? "ok" : status === "caution" ? "caution" : "pending";
+    const badgeLabel = status === "ok" ? "OK" : status === "caution" ? "Caution" : "Pending";
+    const inciLabel = item.inci || "(translation pending)";
+    return `
+      <div class="ing-row">
+        <div class="no">${item.no}/${total}</div>
+        <div class="names">
+          <div class="inci">${escapeHtml(inciLabel)}</div>
+          <div class="ko">${escapeHtml(item.ko)}</div>
+        </div>
+        <span class="badge ${badgeClass}">${badgeLabel}</span>
+      </div>`;
+  }
+
+  toggleEl.addEventListener("click", () => {
+    expanded = !expanded;
+    draw();
+  });
+
+  draw();
+}
+
+/* ------------------------------------------------------------------
+   Personalized matching — deterministic client-side string match.
+   No LLM call. Ingredient numbers (#no) come straight from the JSON
+   (translation module's numbering); this code never re-counts them.
+   Only avoid-chips present in AVOID_MATCH_TABLE are matched; anything
+   else (e.g. Alcohol, Essential oils) is silently skipped.
+------------------------------------------------------------------ */
+function findAvoidHits(ingredients, avoidChips) {
+  const hits = [];
+  for (const chip of avoidChips) {
+    const koName = AVOID_MATCH_TABLE[chip];
+    if (!koName) continue; // not in the table — no match attempted
+    for (const item of ingredients) {
+      if (!item.ko) continue;
+      if (item.ko.trim() === koName.trim()) {
+        hits.push({ no: item.no, inci: item.inci || item.ko });
+      }
+    }
+  }
+  return hits;
+}
+
+function renderAlerts(product) {
+  const el = document.getElementById("alert-lines");
+  const lines = [];
+
+  // 1) avoid-list hits (exact match only — ambiguous matches are not shown here)
+  const hits = findAvoidHits(product.ingredients, PROFILE.avoidList);
+  if (hits.length) {
+    for (const h of hits) {
+      lines.push(warnLine(`<b>Contains ${escapeHtml(h.inci)} (ingredient #${h.no})</b> — on your avoid list.`));
+    }
+  } else if (PROFILE.avoidList.length) {
+    lines.push(neutralLine(`No matches found for your avoid list (${PROFILE.avoidList.join(", ")}) in this product.`));
+  } else {
+    lines.push(neutralLine(`No avoid-list ingredients selected during onboarding.`));
+  }
+
+  // 2) reef check — driven by environment.analyzed, not guessed
+  lines.push(reefOrMicroplasticLine(product.environment, "reef_tier1", "reef_tier2", "reef-harmful"));
+
+  // 3) microplastic check
+  lines.push(reefOrMicroplasticLine(product.environment, "microplastic_tier1", "microplastic_tier2", "microplastic"));
+
+  // 4) sensitive-skin note — only shown for a defensible, literal match
+  const fragrancePresent = product.ingredients.some(i => i.inci && i.inci.toLowerCase() === "fragrance");
+  if (PROFILE.skinType === "Sensitive" && fragrancePresent) {
+    lines.push(okLine(`<b>Sensitive skin note:</b> this product contains fragrance, a common trigger for sensitive skin — patch test recommended. General info, not medical advice.`));
+  }
+
+  el.innerHTML = lines.join("");
+}
+
+function reefOrMicroplasticLine(env, tier1Key, tier2Key, label) {
+  if (!env || !env.analyzed) {
+    return neutralLine(`Environmental (${label}) analysis pending.`);
+  }
+  const found = [...env[tier1Key], ...env[tier2Key]];
+  if (found.length) {
+    return warnLine(`<b>Contains ${label} ingredient(s):</b> ${found.map(escapeHtml).join(", ")}.`);
+  }
+  return okLine(`<b>No ${label} ingredients</b> were found in this product.`);
+}
+
+function warnLine(html) {
+  return `<div class="alert-line"><svg class="alert-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3L2 20h20L12 3z" fill="#F4E3C0" stroke="#C99A4E" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 10v4" stroke="#B5822F" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.1" fill="#B5822F"/></svg><p style="margin:0">${html}</p></div>`;
+}
+function okLine(html) {
+  return `<div class="alert-line"><svg class="alert-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.2" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.6"/><path d="M8 12.3l2.6 2.6L16 9.4" stroke="var(--accent-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><p style="margin:0">${html}</p></div>`;
+}
+function neutralLine(html) {
+  return `<div class="alert-line"><svg class="alert-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.2" fill="var(--pending-bg)" stroke="var(--ink-fainter)" stroke-width="1.6"/><path d="M12 8.5v5" stroke="var(--ink-faint)" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="16" r="1" fill="var(--ink-faint)"/></svg><p style="margin:0">${html}</p></div>`;
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[c]));
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunhan — Find a Product</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:#3D5C34; --accent-dark:#2A3F24; --accent-tint:#E1E8DA;
+    --accent-grad: linear-gradient(135deg,#4A6B3F,#263A20);
+    --bg:#F4F1EA;
+    --card:#FFFFFF;
+    --border:#EFEBE2;
+    --ink:#3A3A38;
+    --ink-soft:#6E6A62;
+    --ink-faint:#9A968E;
+    --ink-fainter:#B0ABA1;
+    --pending-bg:#EFEBE2; --pending-fg:#9A968E;
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);font-family:'Manrope',system-ui,sans-serif;
+       -webkit-font-smoothing:antialiased;color:var(--ink)}
+  a{color:var(--accent);text-decoration:none}
+
+  header.site{padding:28px 24px 18px;display:flex;align-items:baseline;gap:14px;
+       max-width:640px;margin:0 auto}
+  header.site .wordmark{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;
+       font-size:26px;letter-spacing:-.01em;color:var(--accent-dark)}
+  header.site .tagline{font-size:13px;color:var(--ink-faint)}
+
+  main{max-width:640px;margin:0 auto;padding:0 20px 110px}
+
+  [hidden]{display:none !important}
+
+  h1.title{margin:14px 0 6px;font-size:26px;font-weight:800;letter-spacing:-.02em;
+       color:var(--ink);line-height:1.2}
+  p.subtitle{margin:0 0 22px;font-size:14px;line-height:1.5;color:var(--ink-faint)}
+
+  .search-box{display:flex;align-items:center;gap:10px;background:var(--card);
+       border:1px solid var(--border);border-radius:16px;padding:13px 16px;margin:0 0 8px}
+  .search-box svg{flex:none}
+  .search-box input{border:none;outline:none;background:none;font-family:inherit;
+       font-size:14.5px;color:var(--ink);width:100%}
+  .search-box input::placeholder{color:var(--ink-fainter)}
+
+  .search-hint{font-size:11.5px;color:var(--ink-fainter);margin:0 4px 20px;line-height:1.5}
+
+  .scan-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;
+       border:1.5px solid var(--accent);padding:14px;border-radius:16px;background:#fff;
+       color:var(--accent);font-family:inherit;font-size:14.5px;font-weight:700;
+       cursor:pointer;margin:0 0 28px;transition:background .15s}
+  .scan-btn:hover{background:var(--accent-tint)}
+  .scan-btn svg{flex:none}
+
+  .divider{display:flex;align-items:center;gap:12px;margin:0 0 24px;
+       font-size:11.5px;font-weight:700;color:var(--ink-fainter);letter-spacing:.04em}
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--border)}
+
+  .product-list{display:flex;flex-direction:column;gap:10px}
+
+  .product-row{display:flex;align-items:center;gap:14px;background:var(--card);
+       border:1px solid var(--border);border-radius:18px;padding:14px 16px;
+       box-shadow:0 4px 16px -10px rgba(0,0,0,.12)}
+  .product-row.active{cursor:pointer}
+  .product-row.active:hover{border-color:var(--accent)}
+  .product-row.disabled{opacity:.55}
+
+  .product-row-icon{width:48px;height:48px;flex:none;border-radius:14px;
+       display:flex;align-items:center;justify-content:center}
+  .product-row.active .product-row-icon{background:var(--accent-grad)}
+  .product-row.disabled .product-row-icon{background:var(--pending-bg)}
+
+  .product-row-info{min-width:0;flex:1}
+  .product-row-name{font-size:15px;font-weight:700}
+  .product-row-sub{font-size:12px;color:var(--ink-fainter);margin-top:2px}
+
+  .badge{padding:5px 11px;border-radius:12px;font-size:11.5px;font-weight:800;flex:none}
+  .badge.ok{background:#E8F0E6;color:#4E7B4B}
+  .badge.pending{background:var(--pending-bg);color:var(--pending-fg)}
+
+  .idle-note,.empty-note{text-align:center;font-size:13px;color:var(--ink-fainter);padding:24px 0}
+
+  .scan-overlay{position:fixed;inset:0;background:rgba(244,241,234,.97);
+       display:flex;flex-direction:column;align-items:center;justify-content:center;
+       gap:16px;z-index:50;text-align:center;padding:24px}
+  .scan-spinner{width:44px;height:44px;border-radius:50%;border:4px solid var(--border);
+       border-top-color:var(--accent);animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .scan-status{font-size:15px;font-weight:700;color:var(--ink);margin:0}
+  .scan-disclaimer{font-size:12px;color:var(--ink-fainter);line-height:1.55;margin:0;max-width:280px}
+
+  .tabbar{position:fixed;left:0;right:0;bottom:0;background:#fff;
+       border-top:1px solid var(--border);z-index:20}
+  .tabbar-inner{max-width:640px;margin:0 auto;display:flex;
+       padding:10px 20px calc(10px + env(safe-area-inset-bottom))}
+  .tab-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;
+       font-size:11px;font-weight:700;color:var(--ink-fainter);text-decoration:none;padding:4px 0}
+  .tab-item.active{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a class="wordmark" href="index.html?show=1">sunhan</a>
+  <span class="tagline">K-beauty ingredient translation &amp; safety analysis</span>
+</header>
+
+<main>
+  <h1 class="title">Find a product</h1>
+  <p class="subtitle">Search our demo catalog, or scan a label instead.</p>
+
+  <div class="search-box">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#9A968E" stroke-width="2"/><path d="M20 20l-3.5-3.5" stroke="#9A968E" stroke-width="2" stroke-linecap="round"/></svg>
+    <input type="search" id="product-search" placeholder="Search products…">
+  </div>
+  <p class="search-hint">Demo catalog — 12 products, full analysis available for #11 only.</p>
+
+  <button class="scan-btn" id="scan-btn" type="button">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 8V6a2 2 0 012-2h2M20 8V6a2 2 0 00-2-2h-2M4 16v2a2 2 0 002 2h2M20 16v2a2 2 0 01-2 2h-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg>
+    Scan ingredient label
+  </button>
+
+  <div class="divider">SEARCH RESULTS</div>
+
+  <p class="idle-note" id="idle-note">Type a product name above to search.</p>
+  <p class="empty-note" id="empty-note" hidden>No products match your search.</p>
+  <div class="product-list" id="product-list"></div>
+</main>
+
+<div class="scan-overlay" id="scan-overlay" hidden>
+  <div class="scan-spinner"></div>
+  <p class="scan-status">Scanning ingredient label…</p>
+  <p class="scan-disclaimer">Demo — sample scan, not live OCR.<br>Connecting to sample product #11 analysis.</p>
+</div>
+
+<nav class="tabbar">
+  <div class="tabbar-inner">
+    <a href="search.html" class="tab-item active">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 10.5L12 3l9 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 9.5V20h14V9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Home</span>
+    </a>
+    <a href="skin-journey.html" class="tab-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 5.5A1.5 1.5 0 015.5 4H11v16H5.5A1.5 1.5 0 014 18.5v-13z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M20 5.5A1.5 1.5 0 0018.5 4H13v16h5.5a1.5 1.5 0 001.5-1.5v-13z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      <span>Journey</span>
+    </a>
+    <a href="community.html" class="tab-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="9" r="2.4" stroke="currentColor" stroke-width="2"/><path d="M3 19c0-3 2.7-5.2 6-5.2s6 2.2 6 5.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M15.5 14.3c2.5.3 4.5 2 4.5 4.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>Community</span>
+    </a>
+    <a href="profile.html" class="tab-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="2"/><path d="M5 20c0-3.3 3.1-6 7-6s7 2.7 7 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>Profile</span>
+    </a>
+  </div>
+</nav>
+
+<script>
+/* ------------------------------------------------------------------
+   Local product catalog — 12 hardcoded slots, no server/search API.
+   Only #11 has real analysis data (product-11.json); the rest stay
+   honestly disabled. Row #11's display name comes from product-11.json
+   once it loads (falls back to a placeholder while/if that's unset).
+------------------------------------------------------------------ */
+const PRODUCTS = Array.from({ length: 12 }, (_, i) => {
+  const id = i + 1;
+  return { id, name: `Sunscreen #${id}`, active: id === 11 };
+});
+
+fetch("../data/showcase/product-11.json")
+  .then(r => r.ok ? r.json() : null)
+  .then(data => {
+    if (!data) return;
+    const realName = data.name_en || data.name_ko;
+    if (realName && realName !== "(제품명 미상)") {
+      const p11 = PRODUCTS.find(p => p.id === 11);
+      p11.name = realName;
+      draw(document.getElementById("product-search").value);
+    }
+  })
+  .catch(() => {}); // search still works against placeholder names if this fails
+
+const ICON_ACTIVE = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="#fff" stroke-width="2"/><path d="M12 2.5v2.6M12 18.9v2.6M21.5 12h-2.6M5.1 12H2.5M18.7 5.3l-1.8 1.8M7.1 16.9l-1.8 1.8M18.7 18.7l-1.8-1.8M7.1 7.1L5.3 5.3" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>';
+const ICON_DISABLED = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="#B0ABA1" stroke-width="2"/><path d="M12 2.5v2.6M12 18.9v2.6M21.5 12h-2.6M5.1 12H2.5M18.7 5.3l-1.8 1.8M7.1 16.9l-1.8 1.8M18.7 18.7l-1.8-1.8M7.1 7.1L5.3 5.3" stroke="#B0ABA1" stroke-width="2" stroke-linecap="round"/></svg>';
+
+function searchText(p) {
+  // real product names (once loaded) shouldn't break lookup by slot number
+  return `${p.name} sunscreen #${p.id}`.toLowerCase();
+}
+
+function rowHtml(p) {
+  const icon = p.active ? ICON_ACTIVE : ICON_DISABLED;
+  const badge = p.active
+    ? '<span class="badge ok">Ready</span>'
+    : '<span class="badge pending">Coming soon</span>';
+  const sub = p.active ? '66 ingredients analyzed' : 'Analysis not available yet';
+  return `
+    <div class="product-row ${p.active ? "active" : "disabled"}" data-id="${p.id}">
+      <div class="product-row-icon">${icon}</div>
+      <div class="product-row-info">
+        <div class="product-row-name">${escapeHtml(p.name)}</div>
+        <div class="product-row-sub">${sub}</div>
+      </div>
+      ${badge}
+    </div>`;
+}
+
+function draw(rawQuery) {
+  const listEl = document.getElementById("product-list");
+  const idleEl = document.getElementById("idle-note");
+  const emptyEl = document.getElementById("empty-note");
+  const q = rawQuery.trim().toLowerCase();
+
+  if (!q) {
+    listEl.innerHTML = "";
+    idleEl.hidden = false;
+    emptyEl.hidden = true;
+    return;
+  }
+
+  const filtered = PRODUCTS.filter(p => searchText(p).includes(q));
+  idleEl.hidden = true;
+  emptyEl.hidden = filtered.length > 0;
+  listEl.innerHTML = filtered.map(rowHtml).join("");
+
+  listEl.querySelectorAll(".product-row.active").forEach(el => {
+    el.addEventListener("click", () => { window.location.href = "analysis.html"; });
+  });
+}
+
+document.getElementById("product-search").addEventListener("input", e => draw(e.target.value));
+draw("");
+
+/* ---- scan entry: honest sample-only demo, no real OCR/camera ---- */
+document.getElementById("scan-btn").addEventListener("click", () => {
+  document.getElementById("scan-overlay").hidden = false;
+  setTimeout(() => { window.location.href = "analysis.html"; }, 900);
+});
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[c]));
+}
+</script>
+
+</body>
+</html>
