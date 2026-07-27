@@ -170,7 +170,7 @@ const PRODUCTS = Array.from({ length: 12 }, (_, i) => {
   return { id, name: `Sunscreen #${id}`, active: id === 11 };
 });
 
-fetch("../data/showcase/product-11.json")
+fetch("data/showcase/product-11.json")
   .then(r => r.ok ? r.json() : null)
   .then(data => {
     if (!data) return;
