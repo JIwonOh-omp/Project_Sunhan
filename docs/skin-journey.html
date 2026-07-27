@@ -204,9 +204,7 @@ function render() {
 
   listEl.querySelectorAll(".journey-card").forEach(card => {
     card.addEventListener("click", () => {
-      // only #11 has a real analysis page in this demo; every saved
-      // entry currently points there since that's the only save source
-      window.location.href = "analysis.html";
+      window.location.href = `analysis.html?id=${card.dataset.productId}`;
     });
   });
 }

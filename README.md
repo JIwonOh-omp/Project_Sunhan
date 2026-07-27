@@ -53,8 +53,10 @@ docs/               GitHub Pages 소스 (저장소 루트가 Pages 소스)
                        한 번 진입하면 localStorage 플래그로 재방문 시 자동 스킵(search.html로).
                        ?show=1 또는 각 화면 로고 탭으로 다시 볼 수 있음
   profile.html        온보딩/프로필(FYP) 화면(구 index.html) — 선택값을 sessionStorage로 전달
-  search.html         제품 검색(Home) — 로컬 12개 중 필터링, "스캔" 버튼은 샘플(11번) 연출
-  analysis.html       분석 결과 + For You 카드 화면 — 11번 제품 전용, "Save to Skin Journey" 버튼
+  search.html         제품 검색(Home) — 로컬 12개 전부 실데이터로 검색·선택 가능, "스캔" 버튼은
+                       샘플(11번) 연출
+  analysis.html       분석 결과 + For You 카드 화면 — ?id= 파라미터로 12개 제품 전환,
+                       "Save to Skin Journey" 버튼
   skin-journey.html   저장한 제품 기록(Journey 탭) — localStorage, 여행사진 추가는 Coming soon
   community.html      Coming soon 화면(Community 탭) — 정적 비전 카드
   palette-preview.html 색 팔레트 후보 비교용
@@ -130,6 +132,20 @@ your Korean skincare.", Get Started→프로필 진입, 재방문 시 자동 스
 실제 제품명(WHIPPED Mugtree Vegan Cookie Clay Pack Cleanser)도 원본 자료 확인 후
 반영. 전 구간 헤드리스 브라우저로 실제 클릭 재현 검증. 상세: [log/daily-0727](log/daily-0727)
 
+### GitHub Pages 쇼케이스 7단계 — 나머지 11개 제품 실데이터 채우기
+제품 01~10·12의 전성분(각 제품 문서의 원문 리스트)을 성분명 대응표(v2_ingredient_map.md)·
+EU 알레르겐 참조표(allergen_reference.tsv, 100종 이상)·환경 분석 모듈(리프세이프+
+미세플라스틱 Tier 리스트)에 대조해 사람이 직접 번역·해설·알레르겐/환경 판정을 검증하는
+방식으로 `product-01.json`~`product-12.json` 12종을 완성(제품11의 검증 수준에 맞춤).
+- 리프/미세플라스틱은 LLM 판단이 아니라 환경 모듈의 확정 리스트와 결정론적으로 매칭
+  (예: 02번 PMMA·MMA 크로스폴리머 확정 검출, 09/12번 아크릴레이트 계열 회색지대,
+  룩얼라이크 다수 정확히 비검출 — environment.md의 12제품 검증 결과와 일치 확인).
+- `search.html`을 12개 전 제품이 실데이터를 갖도록 일반화(플레이스홀더/Coming soon 배지
+  제거), `analysis.html`은 `?id=` 쿼리 파라미터로 제품을 전환하도록 변경,
+  `skin-journey.html`의 저장 항목 클릭도 원래 제품으로 정확히 복귀하도록 수정.
+- Playwright 헤드리스 브라우저로 검색→클릭→분석 페이지 이동, Skin Journey 저장·재방문,
+  환경 경고 카드 렌더링까지 실제 흐름 재현 검증(콘솔 에러 없음).
+
 ## 개발 현황
 - [x] v1: 베이스라인 프롬프트 + 실패 유형 8가지 도출
 - [x] v2: 도메인 지식 주입 (성분 대응표·EU 알레르겐 확대판·
@@ -146,4 +162,5 @@ your Korean skincare.", Get Started→프로필 진입, 재방문 시 자동 스
       Skin Journey 실기능(localStorage 저장·조회·삭제) 구현, Community는 정적 Coming soon으로 분리
 - [x] GitHub Pages 쇼케이스 6단계: 앱 랜딩 화면 신설(가치제안 "Understand what's really in
       your Korean skincare.") + Get Started→프로필 진입 흐름, 재방문 시 랜딩 자동 스킵(localStorage)
-- [ ] 쇼케이스 확장: 나머지 11개 제품 실데이터 채우기 (예정)
+- [x] GitHub Pages 쇼케이스 7단계: 나머지 11개 제품 실데이터 채우기, 검색/분석/저널 화면
+      12개 제품 지원으로 일반화

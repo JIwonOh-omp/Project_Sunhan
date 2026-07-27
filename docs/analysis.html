@@ -138,7 +138,7 @@
 </header>
 
 <main>
-  <p class="demo-note">Stage 1 showcase — schema &amp; layout only. Ingredient data below is placeholder until translation/analysis is filled in.</p>
+  <p class="demo-note">Demo project — ingredient translations cross-checked against the Korean Cosmetic Ingredient Dictionary, EU fragrance-allergen list, and reef/microplastic reference tables.</p>
 
   <div id="pending-banner" class="pending-banner" hidden>⏳ Analysis pending — showing structure with placeholder data.</div>
 
@@ -238,7 +238,8 @@ const AVOID_MATCH_TABLE = {
   "Citral": "시트랄"
 };
 
-const DATA_URL = "data/showcase/product-11.json";
+const PRODUCT_ID = (new URLSearchParams(window.location.search).get("id") || "11").padStart(2, "0");
+const DATA_URL = `data/showcase/product-${PRODUCT_ID}.json`;
 
 fetch(DATA_URL)
   .then(r => {

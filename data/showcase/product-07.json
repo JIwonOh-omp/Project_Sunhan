@@ -1,0 +1,41 @@
+{
+  "id": "07",
+  "name_ko": "토리든 다이브인 저분자 히알루론산 토너 500ml",
+  "name_en": "Torriden Dive-In Low-Molecular Hyaluronic Acid Toner (500mL)",
+  "category": "toner",
+  "ingredient_count": 23,
+  "analyzed": true,
+  "ingredients": [
+    { "no": 1, "ko": "정제수", "inci": "Water", "desc_en": "Solvent.", "status": "ok", "flags": [] },
+    { "no": 2, "ko": "부틸렌글라이콜", "inci": "Butylene Glycol", "desc_en": "Humectant, solvent.", "status": "ok", "flags": [] },
+    { "no": 3, "ko": "다이프로필렌글라이콜", "inci": "Dipropylene Glycol", "desc_en": "Solvent, humectant.", "status": "ok", "flags": [] },
+    { "no": 4, "ko": "1,2-헥산다이올", "inci": "1,2-Hexanediol", "desc_en": "Solvent, preservative booster.", "status": "ok", "flags": [] },
+    { "no": 5, "ko": "글리세린", "inci": "Glycerin", "desc_en": "Humectant.", "status": "ok", "flags": [] },
+    { "no": 6, "ko": "베타인", "inci": "Betaine", "desc_en": "Humectant, conditioning.", "status": "ok", "flags": [] },
+    { "no": 7, "ko": "알란토인", "inci": "Allantoin", "desc_en": "Soothing.", "status": "ok", "flags": [] },
+    { "no": 8, "ko": "판테놀", "inci": "Panthenol", "desc_en": "Soothing, moisturizing.", "status": "ok", "flags": [] },
+    { "no": 9, "ko": "소듐하이알루로네이트크로스폴리머", "inci": "Sodium Hyaluronate Crosspolymer", "desc_en": "Hydrating — high-molecular-weight, forms a surface film.", "status": "ok", "flags": [] },
+    { "no": 10, "ko": "소듐하이알루로네이트", "inci": "Sodium Hyaluronate", "desc_en": "Hydrating — standard-molecular-weight hyaluronic acid.", "status": "ok", "flags": [] },
+    { "no": 11, "ko": "소듐아세틸레이티드하이알루로네이트", "inci": "Sodium Acetylated Hyaluronate", "desc_en": "Hydrating — lightweight, faster-absorbing hyaluronic acid derivative.", "status": "ok", "flags": [] },
+    { "no": 12, "ko": "하이드롤라이즈드소듐하이알루로네이트", "inci": "Hydrolyzed Sodium Hyaluronate", "desc_en": "Hydrating — low-molecular-weight hyaluronic acid.", "status": "ok", "flags": [] },
+    { "no": 13, "ko": "하이드롤라이즈드하이알루로닉애씨드", "inci": "Hydrolyzed Hyaluronic Acid", "desc_en": "Hydrating — the lowest-molecular-weight form here, ties to the 'low-molecular' product concept (200ppm).", "status": "ok", "flags": [] },
+    { "no": 14, "ko": "엑토인", "inci": "Ectoin", "desc_en": "Moisturizing, stress-protecting (extremophile-derived).", "status": "ok", "flags": [] },
+    { "no": 15, "ko": "감초추출물", "inci": "Licorice (Glycyrrhiza) Root Extract", "desc_en": "Soothing, brightening (exact species not specified on the label).", "status": "ok", "flags": [] },
+    { "no": 16, "ko": "2,3-부탄다이올", "inci": "2,3-Butanediol", "desc_en": "Solvent, humectant.", "status": "ok", "flags": [] },
+    { "no": 17, "ko": "쇠비름추출물", "inci": "Portulaca Oleracea Extract", "desc_en": "Soothing.", "status": "ok", "flags": [] },
+    { "no": 18, "ko": "트레할로오스", "inci": "Trehalose", "desc_en": "Humectant.", "status": "ok", "flags": [] },
+    { "no": 19, "ko": "알지닌", "inci": "Arginine", "desc_en": "pH adjuster, conditioning agent.", "status": "ok", "flags": [] },
+    { "no": 20, "ko": "펜틸렌글라이콜", "inci": "Pentylene Glycol", "desc_en": "Humectant, preservative booster.", "status": "ok", "flags": [] },
+    { "no": 21, "ko": "말라카이트추출물", "inci": "Malachite Extract", "desc_en": "Conditioning agent (mineral-derived, not a plant despite the name).", "status": "ok", "flags": [] },
+    { "no": 22, "ko": "다이소듐이디티에이", "inci": "Disodium EDTA", "desc_en": "Chelating agent.", "status": "ok", "flags": [] },
+    { "no": 23, "ko": "에틸헥실글리세린", "inci": "Ethylhexylglycerin", "desc_en": "Preservative booster.", "status": "ok", "flags": [] }
+  ],
+  "environment": {
+    "analyzed": true,
+    "reef_tier1": [],
+    "reef_tier2": [],
+    "microplastic_tier1": [],
+    "microplastic_tier2": [],
+    "lookalike_ignored": []
+  }
+}

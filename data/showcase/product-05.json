@@ -1,0 +1,40 @@
+{
+  "id": "05",
+  "name_ko": "아누아 어성초 포어 컨트롤 클렌징오일 200ml",
+  "name_en": "Anua Heartleaf Pore Control Cleansing Oil (200mL)",
+  "category": "cleanser",
+  "ingredient_count": 22,
+  "analyzed": true,
+  "ingredients": [
+    { "no": 1, "ko": "에틸헥실팔미테이트", "inci": "Ethylhexyl Palmitate", "desc_en": "Emollient.", "status": "ok", "flags": [] },
+    { "no": 2, "ko": "솔베스-30테트라올리에이트", "inci": "Sorbeth-30 Tetraoleate", "desc_en": "Cleansing surfactant.", "status": "ok", "flags": [] },
+    { "no": 3, "ko": "솔비탄세스퀴올리에이트", "inci": "Sorbitan Sesquioleate", "desc_en": "Emulsifier.", "status": "ok", "flags": [] },
+    { "no": 4, "ko": "카프릴릭/카프릭트라이글리세라이드", "inci": "Caprylic/Capric Triglyceride", "desc_en": "Lightweight emollient.", "status": "ok", "flags": [] },
+    { "no": 5, "ko": "부틸아보카데이트", "inci": "Butyl Avocadate", "desc_en": "Avocado-derived emollient.", "status": "ok", "flags": [] },
+    { "no": 6, "ko": "향료", "inci": "Fragrance", "desc_en": "Scent — generic labeling, no individual allergens disclosed.", "status": "caution", "flags": ["allergen"] },
+    { "no": 7, "ko": "해바라기씨오일", "inci": "Helianthus Annuus (Sunflower) Seed Oil", "desc_en": "Emollient oil.", "status": "ok", "flags": [] },
+    { "no": 8, "ko": "마카다미아씨오일", "inci": "Macadamia Ternifolia Seed Oil", "desc_en": "Emollient oil.", "status": "ok", "flags": [] },
+    { "no": 9, "ko": "올리브오일", "inci": "Olea Europaea (Olive) Fruit Oil", "desc_en": "Emollient oil.", "status": "ok", "flags": [] },
+    { "no": 10, "ko": "호호바씨오일", "inci": "Simmondsia Chinensis (Jojoba) Seed Oil", "desc_en": "Emollient oil.", "status": "ok", "flags": [] },
+    { "no": 11, "ko": "포도씨오일", "inci": "Vitis Vinifera (Grape) Seed Oil", "desc_en": "Emollient, antioxidant.", "status": "ok", "flags": [] },
+    { "no": 12, "ko": "카프릴릴글라이콜", "inci": "Caprylyl Glycol", "desc_en": "Humectant, preservative booster.", "status": "ok", "flags": [] },
+    { "no": 13, "ko": "에틸헥실글리세린", "inci": "Ethylhexylglycerin", "desc_en": "Preservative booster.", "status": "ok", "flags": [] },
+    { "no": 14, "ko": "울금뿌리추출물", "inci": "Curcuma Longa (Turmeric) Root Extract", "desc_en": "Antioxidant.", "status": "ok", "flags": [] },
+    { "no": 15, "ko": "인도멀구슬나무꽃추출물", "inci": "Melia Azadirachta (Neem) Flower Extract", "desc_en": "Conditioning agent.", "status": "ok", "flags": [] },
+    { "no": 16, "ko": "토코페롤", "inci": "Tocopherol", "desc_en": "Antioxidant (vitamin E).", "status": "ok", "flags": [] },
+    { "no": 17, "ko": "인도멀구슬나무잎추출물", "inci": "Melia Azadirachta (Neem) Leaf Extract", "desc_en": "Conditioning agent.", "status": "ok", "flags": [] },
+    { "no": 18, "ko": "약모밀추출물", "inci": "Houttuynia Cordata Extract", "desc_en": "Soothing (Heartleaf — the product's namesake botanical).", "status": "ok", "flags": [] },
+    { "no": 19, "ko": "참산호말추출물", "inci": "Corallina Officinalis Extract", "desc_en": "Conditioning (red algae, not coral — no reef concern).", "status": "ok", "flags": [] },
+    { "no": 20, "ko": "인도멀구슬나무껍질추출물", "inci": "Melia Azadirachta (Neem) Bark Extract", "desc_en": "Conditioning agent.", "status": "ok", "flags": [] },
+    { "no": 21, "ko": "드럼스틱씨오일", "inci": "Moringa Oleifera Seed Oil", "desc_en": "Emollient oil.", "status": "ok", "flags": [] },
+    { "no": 22, "ko": "홀리바질잎추출물", "inci": "Ocimum Sanctum (Holy Basil) Leaf Extract", "desc_en": "Conditioning agent.", "status": "ok", "flags": [] }
+  ],
+  "environment": {
+    "analyzed": true,
+    "reef_tier1": [],
+    "reef_tier2": [],
+    "microplastic_tier1": [],
+    "microplastic_tier2": [],
+    "lookalike_ignored": []
+  }
+}
